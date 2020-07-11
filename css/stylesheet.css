@@ -8,6 +8,7 @@
   --color-light-orange: #ee964b;
   --color-dark-orange: #f95738;
   --font: "Jost", sans-serif;
+  --box-shadow-sice: 0.5em;
   background-color: var(--color-dark-yellow);
 }
 .head {
@@ -56,7 +57,14 @@
 
 .menuebutton:hover {
   opacity: 1; /* transparent */
+  
 }
+
+.menuebutton:active {
+    
+    
+    transform: translateY(4px);
+  }
 
 .mainview {
   font-family: var(--font);
