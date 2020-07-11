@@ -1,0 +1,185 @@
+
+      * {
+        font-family: "Jost", sans-serif;
+
+        font-size: 20px;
+        --color-dark-blue: #0d3b66;
+        --color-light-yellow: #faf0ca;
+        --color-dark-yellow: #f4d35e;
+        --color-light-orange: #ee964b;
+        --color-dark-orange: #f95738;
+        --font: "Jost", sans-serif;
+        background-color: var(--color-dark-yellow);
+      }
+      .head {
+        top: 0px;
+       
+        font-family: var(--font);
+        background-color: #0d3b66;
+        color: var(--color-dark-yellow);
+        height: 15vh;
+        font-size: 3rem;
+        display: flex;
+
+        justify-content: center;
+        align-items: center;
+
+        justify-content: center;
+        align-items: center;
+
+        border: solid;
+        border-width: 0.2rem;
+        border-color: var(--color-dark-yellow);
+        border-radius: 1rem;
+      }
+      .menue {
+        font-family: var(--font);
+        background-color: var(--color-dark-yellow);
+
+        display: flex;
+        flex-direction: row;
+        justify-content: left;
+      }
+      .menuebutton {
+        font-size: 1.5rem;
+        background-color: var(--color-dark-blue);
+        color: var(--color-dark-yellow);
+        width: minmax(400px, auto);
+        height: minmax(200px, auto);
+        margin: 5px; /* abstand nach außen */
+        /*display: flex;
+        justify-content: center;
+        align-items: center; */
+        border-radius: 0.7rem;
+        padding: 1rem;
+      }
+
+      .mainview {
+        font-family: var(--font);
+        display: grid;
+        grid-template-columns: auto auto auto auto;
+        grid-auto-rows: minmax(50px, auto);
+        column-gap: 2px;
+        row-gap: 2px;
+        height: 500px;
+      }
+      .box {
+        
+        padding: 10px; /* Text wandert nach innen */
+      }
+      .sidemenuebutton {
+        font-family: var(--font);
+        background-color: var(--color-dark-blue);
+        color: var(--color-dark-yellow);
+        width: minmax(200px, auto);
+        height: 1rem;
+        margin: 5px; /* abstand nach außen */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 0.7rem;
+        padding: 1rem;
+      }
+      .sidebarleft {
+        background-color: var(--color-dark-yellow);
+        
+
+        font-family: var(--font);
+      }
+      .center {
+        background-color:  var(--color-light-yellow); 
+        grid-column: span 2;
+      }
+      .sidebarright {
+        background-color: var(--color-dark-yellow);
+        
+      }
+
+      .sidemenue {
+        background-color: var(--color-dark-blue);
+      }
+
+      .container {
+        display: grid;
+        grid-template-columns:  8.3vw 8.3vw 8.3vw 8.3vw 8.3vw 8.3vw 8.3vw 8.3vw 8.3vw 8.3vw 8.3vw 8.3vw;  /* 100px 100px 150px; */
+        grid-auto-rows: minmax(10px, auto);
+        column-gap: 0.0vw;
+        row-gap: 0.1vh;
+      }
+
+      .box {
+        
+        padding: 10px;
+      }
+
+      .with1 {
+        grid-column-start: span 1;
+      }
+      .with2 {
+        grid-column-start: span 2;
+      }
+      .with3 {
+        grid-column-start: span 3;
+      }
+      .with6 {
+        grid-column-start: span 6;
+      }
+      .with9 {
+        grid-column-start: span 9;
+      }
+      .with12 {
+        grid-column-start: span 12;
+      }
+      .withauto {
+        grid-column-start: auto;
+      }
+
+      .playercardscontainer {
+        /*height: 200px;*/
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        
+        justify-content: center; /* zentrieren horizontal (Hauptachse) */
+        align-items: center;
+
+        width: 24 vw ; /*minmax(24vw, 48vw );*/
+      
+        background-color: var(--color-light-yellow);
+      margin: 1rem;
+      
+        
+              
+      }
+      .playercard {
+        border: solid;
+        border-width: 0.2rem;
+        border-color: var(--color-dark-blue);
+        border-radius: 1rem;
+        padding: 1rem;
+        width:  18vw ; 
+        height: 32vh;
+        background-color: var(--color-light-yellow);
+
+        margin: 1rem;
+      }
+      .image >img{
+          display: flex;
+          justify-content: center;
+          height: 200px;
+          background-color: var(--color-light-yellow);
+        
+      }
+
+  
+      .name{
+        font-family: var(--font);
+        background-color: var(--color-light-yellow);
+
+      }
+      .position{
+        font-family: var(--font);
+        background-color: var(--color-light-yellow);
+
+      }
+    
