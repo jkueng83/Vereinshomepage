@@ -1,25 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>FC - Koblach 1b</title>
     <link rel="stylesheet" href="../css/cssreset.css" />
 
-
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
     <style>
-        @import url("https://fonts.googleapis.com/css2?family=Jost:wght@400;700;900&display=swap");
-      </style>
+      @import url("https://fonts.googleapis.com/css2?family=Jost:wght@400;700;900&display=swap");
+    </style>
 
-<link rel="stylesheet" href="../css/stylesheet.css" />
-<link rel="stylesheet" href="../css/styleoverwrite.css">
+    <link rel="stylesheet" href="../css/stylesheet.css" />
+    <link rel="stylesheet" href="../css/styleoverwrite.css" />
 
-</head>
-<body>
+    <script>
+      function add(x, y) {
+        return x + y;
+      }
 
+      console.log(add(4, 3));
+      console.log(add("2", " ho"));
 
+      function onClickButton() {
+        console.log("Kick! ");
+      }
+
+      function makeCalkulation() {
+        var calc = document.getElementById("calculation").value;
+        var result = eval(calc);
+        /* Öffnet eine BOX: alert("CALCULATION: " + calc + " RESULT: " + result); */
+
+        document.getElementById("resultOfCalculation").innerHTML = result;
+      }
+
+      function deleteCalculation(){
+        
+        document.getElementById("resultOfCalculation").innerHTML = "Result of calkulation";
+
+      }
+    </script>
+  </head>
+  <body>
     <div>Verein</div>
-    
-</body>
+
+    <button type="button" onclick="onClickButton()">
+      Console Wirte Button
+    </button>
+    <p></p>
+
+    <div>Berechnung eingeben:</div>
+    <input type="text" onclick="deleteCalculation()" onchange="makeCalculation()" id="calculation"  />
+    <button type="button" onclick="makeCalkulation()">
+      Berechung ausführen
+    </button>
+    <output id="resultOfCalculation">Result of calkulation</output>
+
+    <p></p>
+
+    <button
+      type="button"
+      onclick="document.getElementById('demo').innerHTML = Date()"
+    >
+      Click me to display Date and Time.
+    </button>
+
+    <p id="demo"></p>
+  </body>
 </html>
