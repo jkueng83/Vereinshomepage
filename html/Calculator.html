@@ -5,12 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vereinshomepage Rechner</title>
     <link rel="stylesheet" href="../css/cssreset.css" />
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
-      crossorigin="anonymous"
-    />
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.css" />
     <!-- Farben:
         https://coolors.co/0d3b66-faf0ca-f4d35e-ee964b-f95738
         dunkelblau: 0D3B66; hellgelb: FAF0CA ; dunkelgelb: F4D35E ; hellorange : EE964B ; dunkel orange: F95738 -->
@@ -18,102 +13,38 @@
       @import url("https://fonts.googleapis.com/css2?family=Jost:wght@400;700;900&display=swap");
     </style>
 
+    <link rel="stylesheet" href="../css/stylesheet.css" />
     <link rel="stylesheet" href="../css/styleoverwrite.css" />
+
     <script>
-      function onclick0() {
+
+      function addToCalculation(toAdd) {
         var calculation = document.getElementById("calculationString").value;
-        calculation = calculation + "0";
+        if (calculation == "?") {
+          calculation = "";
+        }
+        calculation = calculation + toAdd;
         document.getElementById("calculationString").innerHTML = calculation;
-      }
-      function onclick1() {
-        var calculation = document.getElementById("calculationString").value;
-        calculation = calculation + "1";
-        document.getElementById("calculationString").innerHTML = calculation;
-      }
-      function onclick2() {
-        var calculation = document.getElementById("calculationString").value;
-        calculation = calculation + "2";
-        document.getElementById("calculationString").innerHTML = calculation;
-      }
-      function onclick3() {
-        var calculation = document.getElementById("calculationString").value;
-        calculation = calculation + "3";
-        document.getElementById("calculationString").innerHTML = calculation;
-      }
-      function onclick4() {
-        var calculation = document.getElementById("calculationString").value;
-        calculation = calculation + "4";
-        document.getElementById("calculationString").innerHTML = calculation;
-      }
-      function onclick5() {
-        var calculation = document.getElementById("calculationString").value;
-        calculation = calculation + "5";
-        document.getElementById("calculationString").innerHTML = calculation;
-      }
-      function onclick6() {
-        var calculation = document.getElementById("calculationString").value;
-        calculation = calculation + "6";
-        document.getElementById("calculationString").innerHTML = calculation;
-      }
-      function onclick7() {
-        var calculation = document.getElementById("calculationString").value;
-        calculation = calculation + "7";
-        document.getElementById("calculationString").innerHTML = calculation;
-      }
-      function onclick8() {
-        var calculation = document.getElementById("calculationString").value;
-        calculation = calculation + "8";
-        document.getElementById("calculationString").innerHTML = calculation;
-      }
-      function onclick9() {
-        var calculation = document.getElementById("calculationString").value;
-        calculation = calculation + "9";
-        document.getElementById("calculationString").innerHTML = calculation;
-      }
-      function onclickMultiplication() {
-        var calculation = document.getElementById("calculationString").value;
-        calculation = calculation + "*";
-        document.getElementById("calculationString").innerHTML = calculation;
-      }
-      function onclickDivision() {
-        var calculation = document.getElementById("calculationString").value;
-        calculation = calculation + "/";
-        document.getElementById("calculationString").innerHTML = calculation;
-      }
-      function onclickMinus() {
-        var calculation = document.getElementById("calculationString").value;
-        calculation = calculation + "-";
-        document.getElementById("calculationString").innerHTML = calculation;
-      }
-      
-      function onclickAdd(){
-        var calculation = document.getElementById("calculationString").value;
-        calculation = calculation + "+";
-        document.getElementById("calculationString").innerHTML = calculation;
+
+        console.log('add');
       }
 
-      function onclickMakeCalculation() {
+      function makeCalculation() {
         var calc = document.getElementById("calculationString").value;
         var result = eval(calc);
         document.getElementById("calculationResult").innerHTML = result;
       }
 
-      function onclickClear(){
-        document.getElementById("calculationString").innerHTML = "";
-        document.getElementById("calculationResult").innerHTML = "";
+      function resetField() {
+        document.getElementById("calculationString").innerHTML = "?";
+        document.getElementById("calculationResult").innerHTML = "?";
+        
       }
-
-      function onclickDot(){
-        var calculation = document.getElementById("calculationString").value;
-        calculation = calculation + ".";
-        document.getElementById("calculationString").innerHTML = calculation;
-      }
-
 
     </script>
   </head>
   <body>
-    <div class="container">
+    <div class="container-xl">
       <div class="row">
         <div class="col">
           FC Koblach
@@ -150,15 +81,62 @@
             class="alert alert-secondary"
             role="alert"
             id="calculationString"
-          >
+            >?</output>
+
+          <output type="text" class="alert alert-secondary" role="alert"
+            >=
           </output>
+
           <output
             type="text"
             class="alert alert-secondary"
             role="alert"
             id="calculationResult"
+            >?</output>
+
+          <div
+            class="btn-toolbar"
+            role="toolbar"
+            aria-label="Toolbar with button groups"
           >
-          </output>
+            <div class="btn-group mr-2" role="group" aria-label="First group">
+              <button type="button" class="btn btn-secondary" onclick="resetField()">
+                C
+              </button>
+            </div>
+
+            <div class="btn-group mr-2" role="group" aria-label="Second group">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                onclick="addToCalculation('(')"
+              >
+                (
+              </button>
+            </div>
+
+            <div class="btn-group mr-2" role="group" aria-label="Third group">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                onclick="addToCalculation(')')"
+              >
+                )
+              </button>
+            </div>
+
+            <div class="btn-group mr-2" role="group" aria-label="Forth group">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                onclick="addToCalculation('/')"
+              >
+                /
+              </button>
+            </div>
+          </div>
+
+          <p></p>
 
           <div
             class="btn-toolbar"
@@ -169,24 +147,88 @@
               <button
                 type="button"
                 class="btn btn-secondary"
-                onclick="onclick7()"
+                onclick="addToCalculation(7)"
               >
                 7
               </button>
             </div>
 
             <div class="btn-group mr-2" role="group" aria-label="Second group">
-              <button type="button" class="btn btn-secondary" onclick="onclick8()">8</button>
+              <button
+                type="button"
+                class="btn btn-secondary"
+                onclick="addToCalculation(8)"
+              >
+                8
+              </button>
             </div>
 
             <div class="btn-group mr-2" role="group" aria-label="Third group">
-              <button type="button" class="btn btn-secondary" onclick="onclick9()">9</button>
+              <button
+                type="button"
+                class="btn btn-secondary"
+                onclick="addToCalculation(9)"
+              >
+                9
+              </button>
             </div>
-            <div class="btn-group mr-2" role="group" aria-label="Third group">
-              <button type="button" class="btn btn-secondary" onclick="onclickMultiplication()">*</button>
+
+            <div class="btn-group mr-2" role="group" aria-label="Forth group">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                onclick="addToCalculation('*')"
+              >
+                *
+              </button>
             </div>
+
+          </div>
+          
+          <p></p>
+
+          <div
+            class="btn-toolbar"
+            role="toolbar"
+            aria-label="Toolbar with button groups"
+          >
+            <div class="btn-group mr-2" role="group" aria-label="First group">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                onclick="addToCalculation(4)"
+              >
+                4
+              </button>
+            </div>
+
+            <div class="btn-group mr-2" role="group" aria-label="Second group">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                onclick="addToCalculation(5)"
+              >
+                5
+              </button>
+            </div>
+
             <div class="btn-group mr-2" role="group" aria-label="Third group">
-              <button type="button" class="btn btn-secondary" onclick="onclickDivision()">/</button>
+              <button
+                type="button"
+                class="btn btn-secondary"
+                onclick="addToCalculation(6)"
+              >
+                6
+              </button>
+            </div>
+            <div class="btn-group mr-2" role="group" aria-label="Forth group">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                onclick="addToCalculation('-')"
+              >
+                -
+              </button>
             </div>
           </div>
 
@@ -198,18 +240,42 @@
             aria-label="Toolbar with button groups"
           >
             <div class="btn-group mr-2" role="group" aria-label="First group">
-              <button type="button" class="btn btn-secondary" onclick="onclick4()">4</button>
+              <button
+                type="button"
+                class="btn btn-secondary"
+                onclick="addToCalculation(1)"
+              >
+                1
+              </button>
             </div>
 
             <div class="btn-group mr-2" role="group" aria-label="Second group">
-              <button type="button" class="btn btn-secondary" onclick="onclick5()">5</button>
+              <button
+                type="button"
+                class="btn btn-secondary"
+                onclick="addToCalculation(2)"
+              >
+                2
+              </button>
             </div>
 
             <div class="btn-group mr-2" role="group" aria-label="Third group">
-              <button type="button" class="btn btn-secondary" onclick="onclick6()">6</button>
+              <button
+                type="button"
+                class="btn btn-secondary"
+                onclick="addToCalculation(3)"
+              >
+                3
+              </button>
             </div>
-            <div class="btn-group mr-2" role="group" aria-label="Third group">
-              <button type="button" class="btn btn-secondary" onclick="onclickMinus()">-</button>
+            <div class="btn-group mr-2" role="group" aria-label="Forth group">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                onclick="addToCalculation('+')"
+              >
+                +
+              </button>
             </div>
           </div>
 
@@ -221,41 +287,36 @@
             aria-label="Toolbar with button groups"
           >
             <div class="btn-group mr-2" role="group" aria-label="First group">
-              <button type="button" class="btn btn-secondary" onclick="onclick1()">1</button>
+              <button
+                type="button"
+                class="btn btn-secondary"
+                onclick="addToCalculation(0)"
+              >
+                0
+              </button>
             </div>
 
             <div class="btn-group mr-2" role="group" aria-label="Second group">
-              <button type="button" class="btn btn-secondary" onclick="onclick2()">2</button>
+              <button
+                type="button"
+                class="btn btn-secondary"
+                onclick="addToCalculation('.')"
+              >
+                .
+              </button>
             </div>
 
             <div class="btn-group mr-2" role="group" aria-label="Third group">
-              <button type="button" class="btn btn-secondary" onclick="onclick3()">3</button>
+              <button
+                type="button"
+                class="btn btn-secondary"
+                onclick="makeCalculation('=')"
+              >
+                =
+              </button>
             </div>
-            <div class="btn-group mr-2" role="group" aria-label="Third group">
-              <button type="button" class="btn btn-secondary" onclick="onclickAdd()">+</button>
-            </div>
-          </div>
-
-          <p></p>
-
-          <div
-            class="btn-toolbar"
-            role="toolbar"
-            aria-label="Toolbar with button groups"
-          >
-            <div class="btn-group mr-2" role="group" aria-label="First group">
-              <button type="button" class="btn btn-secondary" onclick="onclickClear()">C</button>
-            </div>
-
-            <div class="btn-group mr-2" role="group" aria-label="Second group">
-              <button type="button" class="btn btn-secondary" onclick="onclick0()">0</button>
-            </div>
-
-            <div class="btn-group mr-2" role="group" aria-label="Third group">
-              <button type="button" class="btn btn-secondary" onclick="onclickDot()">.</button>
-            </div>
-            <div class="btn-group mr-2" role="group" aria-label="Third group">
-              <button type="button" class="btn btn-secondary" onclick="onclickMakeCalculation()" >=</button>
+            <div class="btn-group mr-2" role="group" aria-label="Forth group">
+              <button type="button" class="btn btn-secondary"></button>
             </div>
           </div>
         </div>
