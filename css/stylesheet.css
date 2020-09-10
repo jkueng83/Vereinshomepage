@@ -231,10 +231,8 @@
   background-color: var(--color-light-yellow);
 }
 
-
-footer{
-
-  background-color:var(--color-dark-blue);
+footer {
+  background-color: var(--color-dark-blue);
   border: solid;
   border-width: 0.2rem;
   border-color: var(--color-dark-blue);
@@ -247,10 +245,7 @@ footer{
 
   display: flex;
   justify-content: center;
-  
+
   border-radius: 0.7rem;
   padding: 1rem;
-
-  
-  
 }

@@ -1,5 +1,3 @@
-
-
 function buttonHasNoFunktionAlert() {
-    alert("Button has no function");
+  alert("Button has no function");
 }
