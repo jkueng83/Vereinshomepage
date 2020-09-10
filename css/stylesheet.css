@@ -44,16 +44,14 @@
   flex-direction: row;
   justify-content: left;
   align-items: center; /* Nebenachse,  nach unten  */
-
-  
 }
 .menuebutton {
   font-size: 1.5rem;
-  background-color:   var(--color-dark-blue);
+  background-color: var(--color-dark-blue);
   color: var(--color-dark-yellow);
   /* width:  minmax(400px, auto); */
-   min-width: 11rem; /* % des Vater Elements*/ 
-   max-width: 22rem;
+  min-width: 11rem; /* % des Vater Elements*/
+  max-width: 22rem;
   /* height:  minmax(200px, auto); */
   min-height: 3rem;
   margin: 5px; /*  abstand nach außen */
@@ -63,22 +61,15 @@
   border-radius: 0.7rem;
   padding: 1rem;
   opacity: 0.9; /* transparent */
-  
-  
-  
- 
 }
 
 .menuebutton:hover {
   opacity: 1; /* transparent */
-  
 }
 
 .menuebutton:active {
-    
-    
-    transform: translateY(4px);
-  }
+  transform: translateY(4px);
+}
 
 .mainview {
   font-family: var(--font);
@@ -110,6 +101,10 @@
 }
 .sidemenuebutton:hover {
   opacity: 1; /* transparent */
+}
+
+.sidemenuebutton:active {
+  transform: translateY(2px);
 }
 .sidebarleft {
   background-color: var(--color-dark-yellow);
@@ -195,9 +190,9 @@
   border-color: var(--color-dark-blue);
   border-radius: 1rem;
   padding: 1rem;
-  width: 150px;
-  
-  min-height: 200px;
+  width: 165px;
+
+  height: 230px;
   background-color: var(--color-light-yellow);
 
   margin: 0.6em;
@@ -218,6 +213,7 @@
 }
 .image {
   background-color: var(--color-light-yellow);
+  padding: 0.5rem;
 }
 .image > img {
   height: 150px;
@@ -233,4 +229,28 @@
 .position {
   font-family: var(--font);
   background-color: var(--color-light-yellow);
+}
+
+
+footer{
+
+  background-color:var(--color-dark-blue);
+  border: solid;
+  border-width: 0.2rem;
+  border-color: var(--color-dark-blue);
+
+  grid-column-start: span 12;
+
+  color: var(--color-dark-yellow);
+
+  font-family: var(--font);
+
+  display: flex;
+  justify-content: center;
+  
+  border-radius: 0.7rem;
+  padding: 1rem;
+
+  
+  
 }
