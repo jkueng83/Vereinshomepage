@@ -24,8 +24,7 @@
   font-size: 3rem;
   display: flex;
 
-  justify-content: center;
-  align-items: center;
+ 
 
   justify-content: center;
   align-items: center;
@@ -54,7 +53,7 @@
   max-width: 22rem;
   /* height:  minmax(200px, auto); */
   min-height: 3rem;
-  margin: 5px; /*  abstand nach außen */
+  margin: 5px; /* Abstand nach außen */
   /*display: flex;
         justify-content: center;
         align-items: center; */

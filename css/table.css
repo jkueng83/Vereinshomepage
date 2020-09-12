@@ -1,0 +1,75 @@
+table {
+  background-color: var(--color-dark-yellow);
+}
+
+caption {
+  background-color: var(--color-light-yellow);
+  color: var(--color-dark-blue);
+  font-size: 1.2rem;
+  font-family: var(--font);
+  font-weight: bolder;
+  min-height: 3rem;
+
+  text-align: center;
+  padding: 20px;
+
+  
+}
+
+th {
+  font-family: var(--font);
+  
+  border-style: solid;
+  
+  font-weight: bold;
+  min-width: 3rem;
+}
+
+.tableRowHead {
+
+ 
+  height: auto;
+  
+  
+}
+
+.columnWithSmall{
+
+    width: 3em;
+}
+.columnWithMiddle{
+
+    width: 4em;
+}
+
+.columnWithTeam{
+width: 15em;
+}
+
+.textAlignCenter{
+    text-align: center;
+
+}
+
+td {
+  font-family: var(--font);
+}
+
+
+.tableTeamStyle {
+  background-color: var(--color-dark-blue);
+  color: var(--color-dark-yellow);
+  font-size: 1.5rem;
+  font-family: var(--font);
+
+  border: solid;
+  border-width: 0.2rem;
+  border-color: var(--color-light-yellow);
+  border-radius: 1rem;
+  min-height: 3rem;
+  margin: 0px; /* Abstand nach außen */
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
