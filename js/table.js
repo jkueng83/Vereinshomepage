@@ -136,7 +136,82 @@ function openTableOfCompetition(competitionId) {
 }
 
 function loadTeamsOfCompetition(competitionId) {
-  alert("Auflistung der Mannschaften muss noch gemacht werden");
+  let urlTeamsOfCompetition =
+    "https://api.football-data.org/v2/competitions/" + competitionId + "/teams";
+
+  fetch(urlTeamsOfCompetition, requestOptions)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      //appendData(data);
+
+      //console.log(data);
+
+      let html = "";
+
+      data.teams.forEach((team) => {
+        html +=
+          " <div class='menuebutton' onclick='listTeamMembers(" +
+          team.id +
+          ")'> " +
+          team.name +
+          " </div> ";
+      });
+
+      //console.log(html);
+      document.getElementById("teams").innerHTML = html;
+    })
+    .catch(function (err) {
+      console.log(err);
+    });
+}
+
+function listTeamMembers(teamId) {
+  let url = "https://api.football-data.org/v2/teams/" + teamId;
+
+  fetch(url, requestOptions)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      //appendData(data);
+
+      console.log(data);
+
+      let html =
+        " <div class='centertitle'> Spieler vom Verein: " +
+        data.name +
+        " </div> <ul class='playercardscontainer'> ";
+
+      data.squad.forEach((player) => {
+        let d = new Date(player.dateOfBirth);
+
+        html +=
+          "<li class='playercard'>" +
+          "<div class='image'> <img src='../image/Ziege.jpg' alt='Ziege'/> </div>" +
+          "<div class='name'>" +
+          player.name +
+          "</div>" +
+          "<div class='position'>";
+        if (player.position != null) {
+          html += player.position;
+        } else if (player.role != null) {
+          html += player.role;
+        }
+        html +=
+          "</div>" + "</div>" + d.toLocaleDateString() + "</div>" + "</li>";
+      });
+
+      html += " </ul";
+
+      //console.log(html);
+
+      document.getElementById("teamMembers").innerHTML = html;
+    })
+    .catch(function (err) {
+      console.log(err);
+    });
 }
 
 loadCompetitions();
