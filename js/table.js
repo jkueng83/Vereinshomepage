@@ -20,7 +20,7 @@ function loadCompetitions() {
     .then(function (data) {
       //appendData(data);
 
-      console.log(data);
+      // console.log(data);
 
       let html = "<ul>";
 
@@ -50,6 +50,8 @@ function loadCompetitions() {
       html += "</ul>";
 
       document.getElementById("idSidebarLeft").innerHTML = html;
+      
+
     })
 
     .catch(function (err) {
@@ -59,7 +61,8 @@ function loadCompetitions() {
 
 function openCompetition(competitionId) {
   openTableOfCompetition(competitionId);
-  loadTeamsOfCompetition(competitionId);
+  //loadTeamsOfCompetition(competitionId);
+  loadTeamsOfCompetitionWithHandlebars(competitionId)
 }
 
 function openTableOfCompetition(competitionId) {
@@ -136,6 +139,9 @@ function openTableOfCompetition(competitionId) {
 }
 
 function loadTeamsOfCompetition(competitionId) {
+
+  
+
   let urlTeamsOfCompetition =
     "https://api.football-data.org/v2/competitions/" + competitionId + "/teams";
 
@@ -148,19 +154,71 @@ function loadTeamsOfCompetition(competitionId) {
 
       //console.log(data);
 
-      let html = "";
+      let html = "" ;
 
       data.teams.forEach((team) => {
+
+        //console.log(template(team));
+        //html += template(team)
         html +=
-          " <div class='menuebutton' onclick='listTeamMembers(" +
+        
+        
+          " <div class='sidemenuebutton' onclick='listTeamMembers(" +
           team.id +
           ")'> " +
           team.name +
           " </div> ";
+
+
       });
 
+      
       //console.log(html);
       document.getElementById("teams").innerHTML = html;
+    })
+    .catch(function (err) {
+      console.log(err);
+    });
+}
+
+function loadTeamsOfCompetitionWithHandlebars(competitionId){
+
+  var source = document.getElementById("team-template").innerHTML;
+  var template = Handlebars.compile(source);
+
+  
+
+  let urlTeamsOfCompetition =
+    "https://api.football-data.org/v2/competitions/" + competitionId + "/teams";
+
+  fetch(urlTeamsOfCompetition, requestOptions)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      //appendData(data);
+
+      //console.log(data);
+
+      let html = "" ;
+
+      data.teams.forEach((team) => {
+
+        //console.log(template(team));
+        html += template(team)
+        //html +=
+        //  " <div class='sidemenuebutton' onclick='listTeamMembers(" +
+        //  team.id +
+        //  ")'> " +
+        //  team.name +
+       //   " </div> ";
+
+
+      });
+
+      
+      //console.log(html);
+      document.getElementById("teamsHendlebars").innerHTML = html;
     })
     .catch(function (err) {
       console.log(err);
@@ -177,7 +235,7 @@ function listTeamMembers(teamId) {
     .then(function (data) {
       //appendData(data);
 
-      console.log(data);
+      //console.log(data);
 
       let html =
         " <div class='centertitle'> Spieler vom Verein: " +
@@ -200,7 +258,7 @@ function listTeamMembers(teamId) {
           html += player.role;
         }
         html +=
-          "</div>" + "</div>" + d.toLocaleDateString() + "</div>" + "</li>";
+          "</div>" + "<div class='birthday'>" + d.toLocaleDateString() + "</div>" + "</li>";
       });
 
       html += " </ul";
@@ -215,3 +273,5 @@ function listTeamMembers(teamId) {
 }
 
 loadCompetitions();
+openCompetition(2002);
+loadTeamsOfCompetitionWithHandlebars(2002);

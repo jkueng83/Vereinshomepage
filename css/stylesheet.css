@@ -14,6 +14,16 @@
 
   box-sizing: border-box;
 }
+
+.row{
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+
+}
 .head {
   top: 0px;
 
@@ -64,6 +74,7 @@
 
 .menuebutton:hover {
   opacity: 1; /* transparent */
+  cursor: pointer;
 }
 
 .menuebutton:active {
@@ -100,6 +111,7 @@
 }
 .sidemenuebutton:hover {
   opacity: 1; /* transparent */
+  cursor: pointer; /* Curser wird zum Finer */
 }
 
 .sidemenuebutton:active {
@@ -176,6 +188,8 @@
   grid-column-start: auto;
 }
 
+
+
 .playercardscontainer {
   display: flex;
   flex-wrap: wrap;
@@ -230,6 +244,12 @@
   background-color: var(--color-light-yellow);
 }
 
+.birthday {
+  font-family: var(--font);
+  background-color: var(--color-light-yellow);
+}
+
+
 footer {
   background-color: var(--color-dark-blue);
   border: solid;
@@ -247,4 +267,9 @@ footer {
 
   border-radius: 0.7rem;
   padding: 1rem;
+}
+
+.row{
+  display: grid;
+  grid-row-start: auto;
 }

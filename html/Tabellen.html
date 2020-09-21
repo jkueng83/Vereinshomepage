@@ -10,17 +10,18 @@
     <!-- Farben:
         https://coolors.co/0d3b66-faf0ca-f4d35e-ee964b-f95738
         dunkelblau: 0D3B66; hellgelb: FAF0CA ; dunkelgelb: F4D35E ; hellorange : EE964B ; dunkel orange: F95738 -->
-   <!-- <style>
+    <!-- <style>
       @import url("https://fonts.googleapis.com/css2?family=Jost:wght@400;700;900&display=swap");
     </style> -->
 
     <link rel="stylesheet" href="../css/stylesheet.css" />
     <link rel="stylesheet" href="../css/table.css" />
 
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
     <script src="../js/scripts.js" defer></script>
     <script src="../js/table.js" defer></script>
-    
   </head>
+
   <body>
     <div class="container">
       <div class="box with12">
@@ -43,9 +44,7 @@
         >
           Mannschaften
         </div>
-        <div class="menuebutton">
-          Tabellen
-        </div>
+        <div class="menuebutton">Tabellen</div>
         <div class="menuebutton" onclick="buttonHasNoFunktionAlert()">
           Events
         </div>
@@ -68,23 +67,29 @@
         </div>
 
         <ul>
-          <li class="sidemenuebutton"> lala </li>
-
-
+          <li class="sidemenuebutton">lala</li>
         </ul>
       </div>
 
       <div class="box center with6" id="idTable">
-        <p class="tableTeamStyle" id="tableTeam" >Tabelle Kampfmannschaft</p>
+        <p class="tableTeamStyle" id="tableTeam">Tabelle Kampfmannschaft</p>
 
-        <table> <!-- table : Tabelle -->
-          <caption> <!-- Überschrift--> Landesliga </caption>
+        <table>
+          <!-- table : Tabelle -->
+          <caption>
+            <!-- Überschrift-->
+            Landesliga
+          </caption>
 
-          <tr class="tableRowHead"> <!-- tr (table row) : Zeile in der Tabelle -->
-            <th class="columnWithMiddle" > <!-- th (table head) : Tabellen Überschrift Element --> Platz</th>
+          <tr class="tableRowHead">
+            <!-- tr (table row) : Zeile in der Tabelle -->
+            <th class="columnWithMiddle">
+              <!-- th (table head) : Tabellen Überschrift Element -->
+              Platz
+            </th>
             <th class="columnWithTeam">Verein</th>
             <th class="columnWithMiddle">Spiele</th>
-            <th class="columnWithSmall" >S</th>
+            <th class="columnWithSmall">S</th>
             <th class="columnWithSmall">U</th>
             <th class="columnWithSmall">N</th>
             <th class="columnWithMiddle">Tore</th>
@@ -93,7 +98,10 @@
           </tr>
 
           <tr>
-            <td class="textAlignCenter"> <!-- td (table cell) : Eine Zelle in der Tabelle --> 1.  </td>
+            <td class="textAlignCenter">
+              <!-- td (table cell) : Eine Zelle in der Tabelle -->
+              1.
+            </td>
             <td>FC Koblach</td>
             <td class="textAlignCenter">5</td>
             <td class="textAlignCenter">2</td>
@@ -105,7 +113,10 @@
           </tr>
 
           <tr>
-               <td class="textAlignCenter">  <!-- td (table cell) : Eine Zelle in der Tabelle --> 2.  </td>
+            <td class="textAlignCenter">
+              <!-- td (table cell) : Eine Zelle in der Tabelle -->
+              2.
+            </td>
             <td>SV Brauerei Frastanz</td>
             <td class="textAlignCenter">5</td>
             <td class="textAlignCenter">3</td>
@@ -115,28 +126,55 @@
             <td class="textAlignCenter">7</td>
             <td class="textAlignCenter">9</td>
           </tr>
-
         </table>
-
       </div>
 
       <div class="box sidebarright with3">
-
-        <div class="sidemenuebutton" onclick="buttonHasNoFunktionAlert()">sidebar right</div>
-
+        <div class="sidemenuebutton" onclick="buttonHasNoFunktionAlert()">
+          sidebar right
+        </div>
       </div>
 
       <div class="box with12 menue" id="teams"></div>
 
-      <div class="box center with12" id="teamMembers" >
+      <div class="container teams" id="teamsHendlebars">
+        <div>teamsHendlebars</div>
+        <div>a</div>
 
+        <div>b</div>
+        <div>c</div>
+        <div>d</div>
+        <div>e</div>
+        <div>f</div>
       </div>
 
-      <footer class=>by Johannes Küng</footer>
+      <div class="box center with12" id="teamMembers"></div>
 
+      <footer>by Johannes Küng</footer>
     </div>
   </body>
-
-  
-
 </html>
+
+<script id="team-template" type="text/x-handlebars-template">
+  <!-- <li id="Id1">{{name}} -->
+
+  <div class="with3">
+    {{name}}
+  </div>
+  <div class="with1">
+    <img src="{{crestUrl}}" alt="image-1. FC Köln" height="50px" />
+  </div>
+  <div class="with3">
+    <a href="{{website}}">
+      {{website}}
+    </a>
+  </div>
+  <div class="with3">
+    {{address}}
+  </div>
+  <div class="with1" onclick="listTeamMembers({{id}})">
+    <button type="button">
+      Open Team
+    </button>
+  </div>
+</script>
